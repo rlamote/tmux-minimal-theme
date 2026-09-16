@@ -80,54 +80,20 @@ tmux source-file ~/.tmux.conf
 
 ### Basic Customization
 
-You can customize the theme colors by adding these options to your `~/.tmux.conf`:
+Choose a built-in color scheme by setting one option in your `~/.tmux.conf`:
 
 ```bash
-# Theme colors
-set -g @minimal_theme_bg_color "#1A1D23"
-set -g @minimal_theme_active_color "#b4befe"
-set -g @minimal_theme_inactive_color "#6c7086"
-set -g @minimal_theme_text_color "#cdd6f4"
-set -g @minimal_theme_accent_color "#b4befe"
-set -g @minimal_theme_border_color "#44475a"
+set -g @minimal_theme_colorscheme "nordfox"
 ```
 
-### Pre-built Color Schemes
+Valid values are `catppuccin_mocha` (default), `catppuccin_frappe`, `nordfox`,
+`tokyonight`, `dracula`, and `gruvbox_dark`.
 
-#### Catppuccin Mocha (Default)
-```bash
-# Already applied by default
-```
-
-#### Tokyo Night
-```bash
-set -g @minimal_theme_bg_color "#1a1b26"
-set -g @minimal_theme_active_color "#7aa2f7"
-set -g @minimal_theme_inactive_color "#565f89"
-set -g @minimal_theme_text_color "#c0caf5"
-set -g @minimal_theme_accent_color "#7aa2f7"
-set -g @minimal_theme_border_color "#414868"
-```
-
-#### Dracula
-```bash
-set -g @minimal_theme_bg_color "#282a36"
-set -g @minimal_theme_active_color "#bd93f9"
-set -g @minimal_theme_inactive_color "#6272a4"
-set -g @minimal_theme_text_color "#f8f8f2"
-set -g @minimal_theme_accent_color "#bd93f9"
-set -g @minimal_theme_border_color "#44475a"
-```
-
-#### Gruvbox Dark
-```bash
-set -g @minimal_theme_bg_color "#1d2021"
-set -g @minimal_theme_active_color "#83a598"
-set -g @minimal_theme_inactive_color "#665c54"
-set -g @minimal_theme_text_color "#ebdbb2"
-set -g @minimal_theme_accent_color "#83a598"
-set -g @minimal_theme_border_color "#504945"
-```
+Set this option anywhere before the plugin is initialized (i.e. before the
+`run '~/.tmux/plugins/tpm/tpm'` line). The scheme is applied when the plugin
+loads (during that `run` line), so if you also want to override individual
+`@minimal_theme_*` color options, set those *after* the `run` line so they
+take effect after the scheme has been applied.
 
 ### Status Bar Components
 
@@ -138,9 +104,9 @@ The status bar displays the following information:
 
 ## 🎨 Customization Guide
 
-### Creating Your Own Color Scheme
+### Overriding Individual Colors
 
-1. Define your colors in `~/.tmux.conf`:
+For advanced customization, override individual theme colors in `~/.tmux.conf`:
 
 ```bash
 # Your custom theme
@@ -152,7 +118,7 @@ set -g @minimal_theme_accent_color "#your-accent-color"
 set -g @minimal_theme_border_color "#your-border-color"
 ```
 
-2. Reload tmux configuration:
+Reload tmux configuration after changing these options:
 
 ```bash
 tmux source-file ~/.tmux.conf
