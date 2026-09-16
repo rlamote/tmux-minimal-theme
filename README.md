@@ -102,6 +102,9 @@ The status bar displays the following information:
 - **Left**: Session name with icon
 - **Right**: Current directory, memory usage, date, time, battery percentage
 
+While the prefix key is active, the session name in `status-left` is highlighted
+by swapping its foreground and background colors.
+
 ## 🎨 Customization Guide
 
 ### Overriding Individual Colors

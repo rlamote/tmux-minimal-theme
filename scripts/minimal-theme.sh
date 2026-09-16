@@ -51,7 +51,8 @@ apply_minimal_theme() {
     tmux set-option -g window-status-separator ""
 
     # Status left (session name)
-    tmux set-option -g status-left "#[fg=$accent_color,bold]$icon_session  #S #[fg=$inactive_color]│ "
+    local status_left="#{?client_prefix,#[fg=$bg_color,bg=$accent_color,bold],#[fg=$accent_color,bg=$bg_color,bold]}$icon_session  #S #[fg=$inactive_color]│ "
+    tmux set-option -g status-left "$status_left"
 
     # Status right with system info
     local status_right="\
