@@ -13,17 +13,20 @@ tmux set-option -g status-left "#[fg=your-color,bold] 🚀 #S #[fg=separator-col
 
 ### Right Status Bar
 
-The right status bar contains multiple segments. You can modify individual segments:
+The right status bar contains configurable segments. The machine name is
+disabled by default; all other segments are enabled. Set these options before
+the plugin is initialized to change which segments are shown:
 
 ```bash
-# Custom right status without battery
-set -g status-right "\
-#[fg=$accent_color] #[fg=$text_color]#(basename #{pane_current_path}) \
-#[fg=$inactive_color]│ \
-#[fg=$accent_color] #[fg=$text_color]#(free | awk '/^Mem/ { printf(\"%.0f%%\", \$3/\$2 * 100) }' ) \
-#[fg=$inactive_color]│ \
-#[fg=$accent_color] #[fg=$text_color]#(date +%H:%M) "
+set -g @minimal_theme_machine_status "on"
+set -g @minimal_theme_directory_status "off"
+set -g @minimal_theme_memory_status "off"
+set -g @minimal_theme_date_status "off"
+set -g @minimal_theme_clock_status "off"
+set -g @minimal_theme_battery_status "off"
 ```
+
+Use `on` to show a segment and `off` to hide it.
 
 ### Custom Icons
 
@@ -79,4 +82,3 @@ set -g clock-mode-style 12
 # Custom clock color
 set -g clock-mode-colour "#your-clock-color"
 ```
-
