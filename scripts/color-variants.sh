@@ -65,3 +65,16 @@ gruvbox_dark() {
     tmux set-option -goq @minimal_theme_border_color "#504945"
     tmux set-option -goq @minimal_theme_selection_color "#b8bb26"
 }
+
+# Unsets all @minimal_theme_*_color options so the next apply_colorscheme
+# call (which only fills in unset colors) can apply a freshly selected
+# scheme's values instead of sticking to a previous scheme/override.
+clear_theme_colors() {
+    tmux set-option -ug @minimal_theme_bg_color
+    tmux set-option -ug @minimal_theme_active_color
+    tmux set-option -ug @minimal_theme_inactive_color
+    tmux set-option -ug @minimal_theme_text_color
+    tmux set-option -ug @minimal_theme_accent_color
+    tmux set-option -ug @minimal_theme_border_color
+    tmux set-option -ug @minimal_theme_selection_color
+}

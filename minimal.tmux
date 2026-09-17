@@ -22,6 +22,23 @@ apply_colorscheme() {
     fi
 }
 
+# Detects whether @minimal_theme_colorscheme changed since the plugin was
+# last (re)loaded (e.g. after `tmux source-file`). If it did, sticky colors
+# left over from the previous scheme/override are cleared so the newly
+# selected scheme applies cleanly instead of being blocked by "set if unset"
+# semantics in apply_colorscheme.
+detect_colorscheme_change() {
+    local current previous
+    current="$(tmux show-option -gqv "@minimal_theme_colorscheme")"
+    previous="$(tmux show-option -gqv "@minimal_theme_last_colorscheme")"
+
+    if [ "$current" != "$previous" ]; then
+        clear_theme_colors
+        tmux set-option -gq "@minimal_theme_last_colorscheme" "$current"
+    fi
+}
+
+detect_colorscheme_change
 apply_colorscheme
 
 # Apply the theme

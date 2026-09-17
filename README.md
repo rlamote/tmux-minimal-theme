@@ -92,7 +92,13 @@ Valid values are `catppuccin_mocha` (default), `catppuccin_frappe`, `nordfox`,
 Set this option before the plugin is initialized (i.e. before the
 `run '~/.tmux/plugins/tpm/tpm'` line). The scheme supplies values only for
 colors you have not configured, so individual `@minimal_theme_*` color options
-in `tmux.conf` always take precedence regardless of where they appear.
+in `tmux.conf` take precedence within a single reload.
+
+Switching `@minimal_theme_colorscheme` to a different scheme and reloading
+(`tmux source-file ~/.tmux.conf`) resets all `@minimal_theme_*` color options,
+including any manual overrides, so the newly selected scheme always applies
+cleanly. If you both override individual colors and want them to survive a
+colorscheme switch, re-apply the overrides after switching schemes.
 
 ### Status Bar Components
 
