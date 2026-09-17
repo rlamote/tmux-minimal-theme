@@ -87,7 +87,7 @@ apply_minimal_theme() {
     option_enabled "$clock_status" &&
         status_right_segments+=("#[fg=$accent_color]$clock_icon #[fg=$text_color]#(date +%H:%M)")
     option_enabled "$battery_status" &&
-        status_right_segments+=("#[fg=$accent_color]$battery_icon #[fg=$text_color]#(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null || echo 'N/A')%")
+        status_right_segments+=("#[fg=$accent_color]$battery_icon #[fg=$text_color]#($CURRENT_DIR/scripts/battery.sh)")
 
     local status_right=""
     local segment
