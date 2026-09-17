@@ -28,6 +28,14 @@ set -g @minimal_theme_battery_status "off"
 
 Use `on` to show a segment and `off` to hide it.
 
+### Toggle Status Bar Keybind
+
+By default, `prefix + b` toggles the status bar on/off. You can rebind this:
+
+```bash
+set -g @minimal_theme_toggle_status_key "t"
+```
+
 ### Custom Icons
 
 You can replace the default icons:

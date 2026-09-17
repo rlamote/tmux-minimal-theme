@@ -17,7 +17,7 @@
 - 🎯 **Minimal Design** - Clean and distraction-free interface
 - 📊 **System Monitoring** - Built-in CPU, memory, battery, and time display
 - 🎨 **Highly Customizable** - Easy color and component customization
-- 🌈 **Multiple Color Schemes** - Catppuccin, Tokyo Night, Dracula, Gruvbox
+- 🌈 **Multiple Color Schemes** - Catppuccin, Tokyo Night, Dracula, Gruvbox, Nordfox
 - ⚡ **Lightweight** - Fast and efficient with minimal resource usage
 - 🔧 **Easy Installation** - One-line installation with TPM
 
@@ -83,7 +83,7 @@ tmux source-file ~/.tmux.conf
 Choose a built-in color scheme by setting one option in your `~/.tmux.conf`:
 
 ```bash
-set -g @minimal_theme_colorscheme "nordfox"
+set -g @minimal_theme_colorscheme "catppuccin_mocha"
 ```
 
 Valid values are `catppuccin_mocha` (default), `catppuccin_frappe`, `nordfox`,

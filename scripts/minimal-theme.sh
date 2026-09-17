@@ -29,6 +29,7 @@ apply_minimal_theme() {
     local border_color=$(get_tmux_option "@minimal_theme_border_color" "#44475a")
     local selection_color=$(get_tmux_option "@minimal_theme_selection_color" "#fab387")
     # Get status bar fields configuration
+    local toggle_status_key=$(get_tmux_option "@minimal_theme_toggle_status_key" "b")
     local session_icon=$(get_tmux_option "@minimal_theme_session_icon" "")
     local machine_status=$(get_tmux_option "@minimal_theme_machine_status" "off")
     local machine_icon=$(get_tmux_option "@minimal_theme_machine_icon" "" )
@@ -61,6 +62,9 @@ apply_minimal_theme() {
     # Message style
     tmux set-option -g message-style "bg=$bg_color,fg=$text_color,bold"
     tmux set-option -g message-command-style "bg=$bg_color,fg=$text_color,bold"
+
+    # Keybind to toggle the status bar on/off
+    tmux bind-key "$toggle_status_key" set-option status
 
     # Window status format
     tmux set-option -g window-status-format "#[fg=$inactive_color,bg=$bg_color] #I:#W "
