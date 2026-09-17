@@ -83,7 +83,7 @@ apply_minimal_theme() {
     option_enabled "$memory_status" &&
         status_right_segments+=("#[fg=$accent_color]$memory_icon #[fg=$text_color]#(free | awk '/^Mem/ { printf(\"%.0f%%\", \$3/\$2 * 100 - 0.5) }' )")
     option_enabled "$date_status" &&
-        status_right_segments+=("#[fg=$accent_color]$date_icon #[fg=$text_color]#(date +%d)")
+        status_right_segments+=("#[fg=$accent_color]$date_icon #[fg=$text_color]#(date '+%b %d')")
     option_enabled "$clock_status" &&
         status_right_segments+=("#[fg=$accent_color]$clock_icon #[fg=$text_color]#(date +%H:%M)")
     option_enabled "$battery_status" &&
