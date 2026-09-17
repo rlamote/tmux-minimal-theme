@@ -8,8 +8,8 @@ source "$CURRENT_DIR/scripts/minimal-theme.sh"
 
 # If @minimal_theme_colorscheme is set to the name of a function defined in
 # color-variants.sh (e.g. "nordfox", "catppuccin_frappe"), apply all of its
-# colors in one go. Any @minimal_theme_* option set individually in tmux.conf
-# after this still overrides the scheme, so manual tweaks keep working.
+# colors in one go. Individually configured @minimal_theme_* color options are
+# preserved, so manual tweaks in tmux.conf always override the scheme.
 apply_colorscheme() {
     local scheme
     scheme="$(tmux show-option -gqv "@minimal_theme_colorscheme")"

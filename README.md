@@ -89,11 +89,10 @@ set -g @minimal_theme_colorscheme "catppuccin_mocha"
 Valid values are `catppuccin_mocha` (default), `catppuccin_frappe`, `nordfox`,
 `tokyonight`, `dracula`, and `gruvbox_dark`.
 
-Set this option anywhere before the plugin is initialized (i.e. before the
-`run '~/.tmux/plugins/tpm/tpm'` line). The scheme is applied when the plugin
-loads (during that `run` line), so if you also want to override individual
-`@minimal_theme_*` color options, set those *after* the `run` line so they
-take effect after the scheme has been applied.
+Set this option before the plugin is initialized (i.e. before the
+`run '~/.tmux/plugins/tpm/tpm'` line). The scheme supplies values only for
+colors you have not configured, so individual `@minimal_theme_*` color options
+in `tmux.conf` always take precedence regardless of where they appear.
 
 ### Status Bar Components
 
