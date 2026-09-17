@@ -103,7 +103,10 @@ The status bar displays the following information:
 - **Right**: Current directory, memory usage, date, time, battery percentage
 
 While the prefix key is active, the session name in `status-left` is highlighted
-by swapping its foreground and background colors.
+using the accent color as its background.
+
+When copy mode is active, it uses the selection color as its background instead.
+Copy-mode highlighting takes precedence when both states are active.
 
 ## 🎨 Customization Guide
 
@@ -119,7 +122,11 @@ set -g @minimal_theme_inactive_color "#your-inactive-color"
 set -g @minimal_theme_text_color "#your-text-color"
 set -g @minimal_theme_accent_color "#your-accent-color"
 set -g @minimal_theme_border_color "#your-border-color"
+set -g @minimal_theme_selection_color "#your-selection-color"
 ```
+
+`@minimal_theme_selection_color` controls both the `status-left` copy-mode
+highlight and the copy-mode selection background.
 
 Reload tmux configuration after changing these options:
 

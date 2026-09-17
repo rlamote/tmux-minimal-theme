@@ -8,6 +8,7 @@ catppuccin_mocha() {
     tmux set-option -g @minimal_theme_text_color "#cdd6f4"
     tmux set-option -g @minimal_theme_accent_color "#b4befe"
     tmux set-option -g @minimal_theme_border_color "#44475a"
+    tmux set-option -g @minimal_theme_selection_color "#fab387"
 }
 
 # Catppuccin Frappe
@@ -18,6 +19,7 @@ catppuccin_frappe() {
     tmux set-option -g @minimal_theme_text_color "#c6d0f5"
     tmux set-option -g @minimal_theme_accent_color "#8caaee"
     tmux set-option -g @minimal_theme_border_color "#51576d"
+    tmux set-option -g @minimal_theme_selection_color "#ef9f76"
 }
 
 # Nordfox
@@ -28,6 +30,7 @@ nordfox() {
     tmux set-option -g @minimal_theme_text_color "#cdcecf"
     tmux set-option -g @minimal_theme_accent_color "#81a1c1"
     tmux set-option -g @minimal_theme_border_color "#5a657d"
+    tmux set-option -g @minimal_theme_selection_color "#ebcb8b"
 }
 
 # Tokyo Night
@@ -38,6 +41,7 @@ tokyonight() {
     tmux set-option -g @minimal_theme_text_color "#c0caf5"
     tmux set-option -g @minimal_theme_accent_color "#7aa2f7"
     tmux set-option -g @minimal_theme_border_color "#414868"
+    tmux set-option -g @minimal_theme_selection_color "#ff9364"
 }
 
 # Dracula
@@ -48,6 +52,7 @@ dracula() {
     tmux set-option -g @minimal_theme_text_color "#f8f8f2"
     tmux set-option -g @minimal_theme_accent_color "#bd93f9"
     tmux set-option -g @minimal_theme_border_color "#44475a"
+    tmux set-option -g @minimal_theme_selection_color "#ffb86c"
 }
 
 # Gruvbox Dark
@@ -58,4 +63,5 @@ gruvbox_dark() {
     tmux set-option -g @minimal_theme_text_color "#ebdbb2"
     tmux set-option -g @minimal_theme_accent_color "#83a598"
     tmux set-option -g @minimal_theme_border_color "#504945"
+    tmux set-option -g @minimal_theme_selection_color "#b8bb26"
 }

@@ -19,6 +19,7 @@ apply_minimal_theme() {
     local text_color=$(get_tmux_option "@minimal_theme_text_color" "#cdd6f4")
     local accent_color=$(get_tmux_option "@minimal_theme_accent_color" "#b4befe")
     local border_color=$(get_tmux_option "@minimal_theme_border_color" "#44475a")
+    local selection_color=$(get_tmux_option "@minimal_theme_selection_color" "#fab387")
     local icon_session=$(get_tmux_option "@minimal_theme_session_icon" "")
     local icon_dir=$(get_tmux_option "@minimal_theme_dir_icon" "")
     local icon_memory=$(get_tmux_option "@minimal_theme_memory_icon" "")
@@ -51,7 +52,10 @@ apply_minimal_theme() {
     tmux set-option -g window-status-separator ""
 
     # Status left (session name)
-    local status_left="#{?client_prefix,#[fg=$bg_color,bg=$accent_color,bold],#[fg=$accent_color,bg=$bg_color,bold]}$icon_session  #S #[fg=$inactive_color]│ "
+    local status_left="\
+#{?pane_in_mode,#[fg=$bg_color]#[bg=$selection_color],#{?client_prefix,#[fg=$bg_color]#[bg=$accent_color],#[fg=$accent_color]#[bg=$bg_color]}}#[bold]$icon_session  #S \
+#[fg=$inactive_color,bg=$bg_color,nobold]│ "
+
     tmux set-option -g status-left "$status_left"
 
     # Status right with system info
@@ -69,7 +73,7 @@ apply_minimal_theme() {
     tmux set-option -g status-right "$status_right"
 
     # Copy mode styling
-    tmux set-option -g mode-style "bg=$active_color,fg=$bg_color"
+    tmux set-option -g mode-style "bg=$selection_color,fg=$bg_color"
 
     # Clock mode
     tmux set-option -g clock-mode-colour "$active_color"
