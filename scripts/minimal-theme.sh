@@ -31,8 +31,8 @@ apply_minimal_theme() {
     # Get status bar fields configuration
     local toggle_status_key=$(get_tmux_option "@minimal_theme_toggle_status_key" "b")
     local session_icon=$(get_tmux_option "@minimal_theme_session_icon" "")
-    local machine_status=$(get_tmux_option "@minimal_theme_machine_status" "off")
-    local machine_icon=$(get_tmux_option "@minimal_theme_machine_icon" "" )
+    local hostname_status=$(get_tmux_option "@minimal_theme_hostname_status" "off")
+    local hostname_icon=$(get_tmux_option "@minimal_theme_hostname_icon" "" )
     local directory_status=$(get_tmux_option "@minimal_theme_directory_status" "on")
     local dir_icon=$(get_tmux_option "@minimal_theme_dir_icon" "")
     local memory_status=$(get_tmux_option "@minimal_theme_memory_status" "on")
@@ -80,8 +80,8 @@ apply_minimal_theme() {
 
     # Status right with configurable system info
     local -a status_right_segments=()
-    option_enabled "$machine_status" &&
-        status_right_segments+=("#[fg=$accent_color]$machine_icon #[fg=$text_color]#H")
+    option_enabled "$hostname_status" &&
+        status_right_segments+=("#[fg=$accent_color]$hostname_icon #[fg=$text_color]#h")
     option_enabled "$directory_status" &&
         status_right_segments+=("#[fg=$accent_color]$dir_icon #[fg=$text_color]#([ #{pane_current_path} = \$HOME ] && echo '~' || basename #{pane_current_path})")
     option_enabled "$memory_status" &&

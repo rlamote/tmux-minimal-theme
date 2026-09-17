@@ -100,14 +100,14 @@ The status bar displays the following information:
 
 - **Left**: Session name with icon
 - **Right**: Current directory, memory usage, date, time, battery percentage,
-  and an optional machine name
+  and an optional hostname
 
-The machine name is disabled by default; all other `status-right` fields are
+The hostname is disabled by default; all other `status-right` fields are
 enabled. Set these options before the plugin is initialized to change which
 fields are shown:
 
 ```bash
-set -g @minimal_theme_machine_status "on"
+set -g @minimal_theme_hostname_status "on"
 set -g @minimal_theme_directory_status "off"
 set -g @minimal_theme_memory_status "off"
 set -g @minimal_theme_date_status "off"

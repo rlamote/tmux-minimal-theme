@@ -13,12 +13,12 @@ tmux set-option -g status-left "#[fg=your-color,bold] 🚀 #S #[fg=separator-col
 
 ### Right Status Bar
 
-The right status bar contains configurable segments. The machine name is
+The right status bar contains configurable segments. The hostname is
 disabled by default; all other segments are enabled. Set these options before
 the plugin is initialized to change which segments are shown:
 
 ```bash
-set -g @minimal_theme_machine_status "on"
+set -g @minimal_theme_hostname_status "on"
 set -g @minimal_theme_directory_status "off"
 set -g @minimal_theme_memory_status "off"
 set -g @minimal_theme_date_status "off"
